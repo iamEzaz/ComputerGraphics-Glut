@@ -1,0 +1,65 @@
+#include <windows.h>
+#include <GL/glut.h>
+
+void Triangle()
+{
+    glColor3ub(255,165,0);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(30,15);
+    glVertex2f(40,10);
+    glVertex2f(40,20);
+    glEnd();
+
+
+}
+
+void Rectangle()
+{
+    glColor3ub(34 ,139 ,34);
+    glBegin(GL_QUADS);
+	glVertex2f(10,10);
+    glVertex2f(30,10);
+    glVertex2f(30,20);
+    glVertex2f(10,20);
+	glEnd();
+
+
+}
+void bordar()
+{
+    glLineWidth(2.5);
+	glBegin(GL_LINES);
+	glColor3ub( 0,0,0);
+	glVertex2f(10,10);
+	glVertex2f(30,10);
+	glVertex2f(30,20);
+	glVertex2f(10,20);
+	glVertex2f(10,10);
+	glVertex2f(10,20);
+	glVertex2f(30,10);
+	glVertex2f(30,20);
+	glEnd();
+
+}
+
+
+void display() {
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	Triangle();
+	Rectangle();
+    bordar();
+	glFlush();
+}
+
+
+int main(int argc, char** argv) {
+	glutInit(&argc, argv);
+	glutInitWindowSize(640, 480);
+	glutCreateWindow("Assignment");
+	gluOrtho2D(0,100,0,100);
+	glutDisplayFunc(display);
+	glutMainLoop();
+	return 0;
+}
